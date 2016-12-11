@@ -21,8 +21,8 @@ class ImdbSpider(scrapy.Spider):
 		for url in url_list:
 			movies_urls.append(self.protocol + "://" + self.base_url + url)
 		for movies_url in movies_urls:
-			yield Request(movies_url, callback=self.parse_movies)     
-
+			yield Request(movies_url, callback=self.parse_movies)
+	
 	def parse_movies(self, response): 
 		sel = Selector(response)
 		item = Imdb01Item()
